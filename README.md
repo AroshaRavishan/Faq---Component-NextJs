@@ -2,6 +2,10 @@
 
 This README describes the functionality of a FAQ (Frequently Asked Questions) component built with React and Next.js. This component provides an interactive way for users to view answers to common questions.
 
+## Sample Preview
+
+![Sample Preview](https://github.com/AroshaRavishan/Faq-Plus-and-Minus-icons-Component-NextJs/blob/main/sample%20preview.png)
+
 ## Component Breakdown
 
 ### 1. `PlusIcon` Component
