@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 
 const PlusIcon = () => (
     <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 1.15308V21.8478" stroke="#5C5C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M1.65259 11.4368H22.3474" stroke="#5C5C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M12 1.15308V21.8478" stroke="#5C5C5C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M1.65259 11.4368H22.3474" stroke="#5C5C5C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
 
@@ -81,24 +81,22 @@ const Faqs = () => {
                         <div className="mt-10 lg:mt-20  w-full lg:w-3/4 mx-auto">
                             <div className="accordion">
                                 {Faqs.map((Faq, index) => (
-                                    <div key={index} className={`border border-gray-300 rounded-xl mb-3 py-6 px-7 ${activeFaqIndex === index ? 'border-gray-300' : ''}`}>
+                                    <div key={index} className={`border border-gray-300 rounded-xl mb-3 py-6 px-7 transition-all duration-700 ${activeFaqIndex === index ? 'border-gray-300' : ''}`}>
                                         <div className=" bg-white flex items-center justify-between cursor-pointer rounded-xl" onClick={() => toggleFaqs(index)}>
                                             <div>
                                                 <span className="text-gray-400 font-normal text-base sm:text-lg">{Faq.title}</span>
                                             </div>
                                             {activeFaqIndex === index ? <MinusIcon /> : <PlusIcon />}
                                         </div>
-                                        {activeFaqIndex === index && (
-                                            <div className="bg-white rounded-xl">
-                                                {Faq.descriptions.map((description, descriptionIndex) => (
-                                                    <div key={descriptionIndex} className="flex justify-between items-center mt-2.5">
-                                                        <div className="flex gap-2 items-center mt-4">
-                                                            <div className="text-gray-400 font-normal text-base sm:text-lg">{description.title}</div>
-                                                        </div>
+                                        <div className={`bg-white rounded-xl overflow-hidden transition-max-height duration-700 ${activeFaqIndex === index ? 'max-h-96' : 'max-h-0'}`}>
+                                            {Faq.descriptions.map((description, descriptionIndex) => (
+                                                <div key={descriptionIndex} className="flex justify-between items-center mt-2.5">
+                                                    <div className="flex gap-2 items-center mt-4">
+                                                        <div className="text-gray-400 font-normal text-base sm:text-lg">{description.title}</div>
                                                     </div>
-                                                ))}
-                                            </div>
-                                        )}
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
