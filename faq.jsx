@@ -81,10 +81,10 @@ const Faqs = () => {
                         <div className="mt-10 lg:mt-20  w-full lg:w-3/4 mx-auto">
                             <div className="accordion">
                                 {Faqs.map((Faq, index) => (
-                                    <div key={index} className={`border border-gray-300 rounded-xl mb-3 py-6 px-7 transition-all duration-700 ${activeFaqIndex === index ? 'border-gray-300' : ''}`}>
+                                    <div key={index} className={`border border-gray-300 rounded-xl mb-3 py-6 px-7 transition-all duration-700 ${activeFaqIndex === index ? 'border-red-300' : ''}`}>
                                         <div className=" bg-white flex items-center justify-between cursor-pointer rounded-xl" onClick={() => toggleFaqs(index)}>
                                             <div>
-                                                <span className="text-gray-400 font-normal text-base sm:text-lg">{Faq.title}</span>
+                                                <span className={`text-gray-400 text-base sm:text-lg ${activeFaqIndex === index ? 'font-medium' : 'font-normal'}`}>{Faq.title}</span>
                                             </div>
                                             {activeFaqIndex === index ? <MinusIcon /> : <PlusIcon />}
                                         </div>
